@@ -1,0 +1,6 @@
+TO RUN LOCALLY:
+pip install -r requirements.txt
+streamlit run .\Upload_PDF.py
+
+TO RUN VIA STREAMLIT:
+  DEPLOY THIS REPO, BRANCH AS main AND Upload_PDF.py AS FILE PATH
