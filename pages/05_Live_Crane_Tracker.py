@@ -192,9 +192,12 @@ try:
                         
                         <hr style="margin: 5px 0; border: 0; border-top: 1px dotted #ccc;">
                         <details style="cursor: pointer; color: #555;">
-                            <summary><b>📄 View Full Text</b></summary>
-                            <h7>Phone numbers are masked!</h7>
-                        </details>
+            <summary><b>📄 View Full Text</b></summary>
+            <div style="font-size: 11px; color: #888; margin-top: 4px;">Phone numbers are masked!</div>
+            <div style="max-height: 150px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; background: #f9f9f9; padding: 6px; border-radius: 4px; margin-top: 5px;">
+                {clean(row.get('full_text'))}
+            </div>
+        </details>
                     </div>
                 """
                 
