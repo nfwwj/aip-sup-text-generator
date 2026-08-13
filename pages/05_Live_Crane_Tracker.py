@@ -6,7 +6,9 @@ import pandas as pd
 from authenticate import remove_auth
 from folium.plugins import Geocoder, Search
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 remove_auth()
 if "updated_success" not in st.session_state:
     st.session_state.updated_success = 0

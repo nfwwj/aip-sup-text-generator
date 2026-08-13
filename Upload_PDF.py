@@ -12,7 +12,9 @@ import zipfile
 from validate_data import validate_data
 import os
 from supabase import create_client
+from dotenv import load_dotenv
 
+load_dotenv()
 
 url = os.environ.get("SUPABASE_URL")
 key = os.environ.get("SUPABASE_KEY")

@@ -11,7 +11,9 @@ import os
 # from googleearth import generate_crane_kml
 # import io
 # import zipfile
+from dotenv import load_dotenv
 
+load_dotenv()
 # Front end UI and logic for Streamlit. This is the file that gets deployed.
 
 remove_auth()

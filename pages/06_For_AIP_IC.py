@@ -9,7 +9,9 @@ import io
 from create_word_doc import edit_existing_doc
 import os
 from supabase import create_client
+from dotenv import load_dotenv
 
+load_dotenv()
 if "updated_success" not in st.session_state:
     st.session_state.updated_success = 0
 if "edit_record" not in st.session_state:
