@@ -11,3 +11,4 @@ st-supabase-connection
 streamlit-folium
 extra-streamlit-components
 supabase
+dotenv
