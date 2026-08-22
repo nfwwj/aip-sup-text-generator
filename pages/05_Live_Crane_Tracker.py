@@ -1,12 +1,11 @@
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
-from supabase import create_client
 import pandas as pd
 from authenticate import remove_auth
 from folium.plugins import Geocoder, Search
-import os
 from dotenv import load_dotenv
+from fetch_crane_data import fetch_crane_records, supabase
 
 load_dotenv()
 remove_auth()
@@ -20,6 +19,7 @@ def delete_crane_record(app_num):
         response = supabase.table("crane_records").delete().eq("application_num", app_num).execute()
 
         if response.data and len(response.data) > 0:
+            fetch_crane_records.clear()
             st.session_state.deleted_app_success = True
             st.rerun()
         else:
@@ -50,7 +50,8 @@ def render_edit_form(record):
                 "mref": mref, 
                 "taken_by": taken_by
             }).eq("application_num", record["application_num"]).execute()
-            
+
+            fetch_crane_records.clear()
             st.session_state.edit_record = None  # Clear the form
             st.session_state.updated_success = 1
             st.rerun()  
@@ -72,11 +73,6 @@ st.markdown("""
 
 st.divider()
 
-url = os.environ.get("SUPABASE_URL")
-key = os.environ.get("SUPABASE_KEY")
-supabase = create_client(url, key)
-
-
 PLAB_CTR_COORDS = [
     (103.8594, 1.1833),
     (104.0302, 1.55),
@@ -95,11 +91,12 @@ PLAB_CTR_COORDS = [
 PLAB_CTR_COORDS_LATLONG = [(lat, long) for long, lat in PLAB_CTR_COORDS]
 
 try:
-    response = supabase.table("crane_records").select("*").execute()
+    records = fetch_crane_records()
     st.subheader("📍 Active cranes tracker")
-    st.markdown(f"Current number of cranes: **{len(response.data)}**")
+    st.markdown("Newly added crane records will take up to a minute to appear.")
+    st.markdown(f"Current number of cranes: **{len(records)}**")
 
-    df_map = pd.DataFrame(response.data)
+    df_map = pd.DataFrame(records)
     
     if not df_map.empty:
         df_map['lat'] = pd.to_numeric(df_map['lat'], errors='coerce')
@@ -211,7 +208,7 @@ try:
                     icon=folium.Icon(color="red")
                 ).add_to(m)
                 
-            st_folium(m, width=800, height=500, key="fpo_master_map")
+            st_folium(m, width=800, height=500, key="fpo_master_map", returned_objects=[])
 
             st.divider()
             st.subheader("🏗️ Crane records")

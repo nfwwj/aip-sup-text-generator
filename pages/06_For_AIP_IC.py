@@ -7,9 +7,8 @@ from authenticate import check_password
 import zipfile
 import io
 from create_word_doc import edit_existing_doc
-import os
-from supabase import create_client
 from dotenv import load_dotenv
+from fetch_crane_data import fetch_crane_records, supabase
 
 load_dotenv()
 if "updated_success" not in st.session_state:
@@ -20,10 +19,6 @@ if "confirm_bulk_update" not in st.session_state:
     st.session_state.confirm_bulk_update = False
 
 if check_password():
-    
-    url = os.environ.get("SUPABASE_URL")
-    key = os.environ.get("SUPABASE_KEY")
-    supabase = create_client(url, key)
 
     if "just_purged_count" not in st.session_state:
         st.session_state.just_purged_count = 0
@@ -79,18 +74,16 @@ if check_password():
             
         return None
 
-    def display_crane_data(type):
+    def display_crane_data(all_records, type):
         try:
-            if type == "X":
-                # For displaying every crane records where aip_required is No
-                response = supabase.table("crane_records").select("*").eq("aip_required","No").execute()
-                
-            else:
-                response = supabase.table("crane_records").select("*").eq("status",type).eq("aip_required","Yes").execute()
-            
-            
-            df = pd.DataFrame(response.data)  
-            
+            df = pd.DataFrame(all_records)
+
+            if not df.empty:
+                if type == "X":
+                    # For displaying every crane records where aip_required is No
+                    df = df[df["aip_required"] == "No"].reset_index(drop=True)
+                else:
+                    df = df[(df["status"] == type) & (df["aip_required"] == "Yes")].reset_index(drop=True)
 
             if not df.empty:
                 df['dtime'] = pd.to_datetime(df['aip_start'], format='%y%m%d%H%M')
@@ -141,11 +134,13 @@ if check_password():
                     db_id = int(df.iloc[row_index]['id'])
                     new_status = "Y" if changes["ui_status"] else "N"
                     supabase.table("crane_records").update({"status": new_status}).eq("id", db_id).execute()
-            
+
+            fetch_crane_records.clear()
             st.rerun()
     def apply_checkbox_to_all():
         try:
             response = supabase.table("crane_records").update({"status": "Y"}).eq("status","N").eq("aip_required","Yes").execute()
+            fetch_crane_records.clear()
             st.rerun()
         except Exception as e:
             st.error(f"Something went wrong: {e}")
@@ -171,7 +166,8 @@ if check_password():
                         supabase.table("crane_records").delete().eq("id", int(row['id'])).execute()
                         purged_count += 1
                 
-                if purged_count > 0:              
+                if purged_count > 0:
+                    fetch_crane_records.clear()
                     st.session_state.just_purged_count = purged_count
                     st.rerun()
                 else:
@@ -185,6 +181,7 @@ if check_password():
             response = supabase.table("crane_records").delete().eq("application_num", app_num).execute()
 
             if response.data and len(response.data) > 0:
+                fetch_crane_records.clear()
                 st.session_state.deleted_app_success = True
                 st.rerun()
             else:
@@ -300,6 +297,7 @@ if check_password():
 
 
                 supabase.table("crane_records").update(update_data).eq("id", record["id"]).execute()
+                fetch_crane_records.clear()
                 st.success(f"✅ Record {app_num} updated successfully!")
                 st.session_state.edit_record = None
                 st.session_state.updated_success = 1
@@ -309,10 +307,12 @@ if check_password():
                 st.error(f"Something went wrong: {e}")
 
     try:
+        all_records = fetch_crane_records()
+
         st.subheader("🏗️❌ Crane Records (status N)")
         st.markdown("Crane records that require AIP (aip_required is 'Yes') and status is N (AIP not sent).")
-        
-        display_crane_data("N")
+
+        display_crane_data(all_records, "N")
         
         if st.button("📥 Generate ZIP file of AIP SUP Documents"):
             generate_docs()
@@ -367,14 +367,14 @@ if check_password():
         st.subheader("🏗️✅ Crane Records (status Y)")
         st.markdown("Crane records that require AIP (aip_required is 'Yes') and status is Y (AIP sent).")
         
-        display_crane_data("Y")
+        display_crane_data(all_records, "Y")
 
         st.divider()
 
         st.subheader("🏗️🆗 Crane Records (AIP not required)")
         st.markdown("Crane records that **DO NOT** require AIP (aip_required is 'No').")
 
-        display_crane_data("X")
+        display_crane_data(all_records, "X")
 
         st.divider()
 

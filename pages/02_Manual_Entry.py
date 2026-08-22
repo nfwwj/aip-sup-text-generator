@@ -6,22 +6,16 @@ from authenticate import remove_auth
 
 # from create_word_doc import edit_existing_doc
 from validate_data import validate_data,validate_coord, validate_zulu_time
-from supabase import create_client
-import os
 # from googleearth import generate_crane_kml
 # import io
 # import zipfile
 from dotenv import load_dotenv
+from fetch_crane_data import fetch_crane_records, supabase
 
 load_dotenv()
 # Front end UI and logic for Streamlit. This is the file that gets deployed.
 
 remove_auth()
-
-
-url = os.environ.get("SUPABASE_URL")
-key = os.environ.get("SUPABASE_KEY")
-supabase = create_client(url, key)
 
 st.title("✍️ (MANUAL) AIPSUP - AIP Supplements and Crane Tracking")
 st.sidebar.info("Made by Model. Model is super duper awesome.")
@@ -246,7 +240,8 @@ if st.session_state.looks_good_clicked == True:
             }
 
             supabase.table("crane_records").insert(record_data).execute()
-            
+            fetch_crane_records.clear()
+
             st.success(f"Crane successfully saved!")
             st.session_state.saved_clicked = True
     except Exception as e:

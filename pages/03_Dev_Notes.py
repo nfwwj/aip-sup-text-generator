@@ -100,6 +100,13 @@ st.markdown("""
 **FIXED:**
 1. Edit crane feature now checks whether date values are valid (Good job to Shawn for breaking it)
 2. Cranes, and the generated AIP SUP word docs, are now sorted by AIP start date, earliest first (for AIP IC usage).
+
+---
+
+### v2.1 patch notes
+            
+**ADDED:**
+1. Some optimization relating to fetching of data. Loading times for most pages should be decreased.
 """)
 
 

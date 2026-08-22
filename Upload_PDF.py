@@ -10,15 +10,10 @@ from st_supabase_connection import SupabaseConnection
 from authenticate import check_password
 import zipfile
 from validate_data import validate_data
-import os
-from supabase import create_client
 from dotenv import load_dotenv
+from fetch_crane_data import fetch_crane_records, supabase
 
 load_dotenv()
-
-url = os.environ.get("SUPABASE_URL")
-key = os.environ.get("SUPABASE_KEY")
-supabase = create_client(url, key)
 
 
 st.set_page_config(page_title="AIP SUP Generator", page_icon="🏗️")
@@ -424,7 +419,8 @@ if "Error" not in data:
                     }
 
                     supabase.table("crane_records").insert(record_data).execute()
-                    
+                    fetch_crane_records.clear()
+
                     st.success(f"Crane successfully saved!")
                     st.session_state.saved_clicked = True
             except Exception as e:

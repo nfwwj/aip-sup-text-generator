@@ -1,0 +1,119 @@
+Application No. : CAAS/AP1/2026/1760
+Permit No. : AP1/20260519/0001/UOP/0011
+Date : 18 May 2026
+Avetics Global Pte Ltd
+47 Ayer Rajah Crescent, #07-08
+Singapore 139947
+ATTN: Mr Steven Leong
+CLASS 1 ACTIVITY PERMIT FOR AVETICS GLOBAL PTE LTD TO OPERATE UNMANNED AIRCRAFT
+AT THE SPECIFIC LOCATION(S) SHOWN IN ANNEX A, ON THE SPECIFIC DATES, TIMES AND
+OPERATING ALTITUDE AS LISTED IN TABLE 1
+Pursuant to Regulations 9, 15 and 16 of the Air Navigation (101 – Unmanned Aircraft Operations)
+Regulations 2019, this Class 1 Activity Permit is granted to Avetics Global Pte Ltd (“the Operator”) to fly 1
+unmanned aircraft (Model Type: DJI DJI Mavic Series, DJI M350, DJI Matrice 400, DJI M300RTK, DJI Matrice
+4 Series, DJI Matrice 3D series ) for Aerial photography/ Videography at the specific location(s) shown in
+Annex A, on the specific activity dates, times and operating altitude as listed in Table 1 below, subject to its
+compliance with the conditions listed in this Permit.
+Activity Date Activity Time Operating Altitude
+24 May 2026 0000LT to 2359LT
+1200 ft above mean sea level (AMSL)
+27 May 2026 0000LT to 2359LT
+30 May 2026 to 31 May 2026 0000LT to 2359LT
+01 June 2026 0000LT to 2359LT
+07 June 2026 0000LT to 2359LT
+14 June 2026 0000LT to 2359LT
+21 June 2026 0000LT to 2359LT
+28 June 2026 0000LT to 2359LT
+05 July 2026 0000LT to 2359LT
+12 July 2026 0000LT to 2359LT
+19 July 2026 0000LT to 2359LT
+26 July 2026 0000LT to 2359LT
+Table 1. List of Activity Dates, Activity Times and Operating Altitude for Proposed Unmanned Aircraft Operations
+The Operator shall only operate the unmanned aircraft within the scope of this Permit and the Unmanned
+Aircraft Operator Permit (Ref. no.: UOP/0011).
+2.
+This Permit is granted subject to the following conditions:3.
+(a) The Operator shall take all necessary measures and precautions to ensure that the flight of the
+unmanned aircraft will not pose a hazard to and / or cause injury or death to persons and / or damage
+to properties.
+Page 1 of 4
+(b) Without prejudice to the generality of sub-paragraph (a), such measures shall include the following:
+i. The Operator shall ensure that the unmanned aircraft operation is entirely confined within the
+area shown in Annex A and shall not exceed the maximum operating height specified in this permit
+at all times;
+ii. The Operator shall ensure that the unmanned aircraft maintains an adequate safety
+distance and not overfly any person, public road, vehicle or structure unless permitted
+under this Permit. This includes the launch and recovery of the unmanned aircraft and in the
+eventuality of a lost link situation between the unmanned aircraft pilot and the unmanned aircraft;
+iii. The Operator shall ensure that the unmanned aircraft does not interfere with the emergency
+services or public transport providers and shall not endanger or cause distraction to the members
+of public;
+iv. The Operator shall use enhanced lighting on the unmanned aircraft for greater visibility for low-
+light or night operation;
+v. The Operator shall ensure that the Remote Pilot or Remote Observer(s) maintains visual contact
+with the unmanned aircraft at all times;
+vi. The Remote Observer(s) shall relay critical flight information to and assist the Remote Pilot in
+maintaining safe separation from any static or dynamic obstacles;
+vii. The Operator shall ensure that the Remote Pilot and the Remote Observer(s) are adequately
+trained to perform EVLOS operations;
+viii. The Operator shall ensure that the unmanned aircraft maintains sufficient separation with other
+unmanned aircraft operating within the same area of operation or flight area if any;
+ix. The Operator shall ensure that during the conduct of automatic / semi-autonomous operations,
+the pilot shall maintain or be able to take over control of the unmanned aircraft if required to ensure
+safety;
+x. There shall be no more than one unmanned aircraft airborne at any one time;
+xi. The unmanned aircraft shall not be flown for longer than 85% of the maximum endurance of the
+model of unmanned aircraft deployed and an appropriate crew rest cycle for the UA pilot shall be
+adhered to at all times; and
+xii. The Operator shall cease the unmanned aircraft flight, if necessary, to ensure safety.
+The Operator must submit the information required under the tab “Flight Request” in the Centralised Flight
+Management System (CFMS) FlyItSafe mobile application immediately before commencing the unmanned
+aircraft flight. After the unmanned aircraft flight has ceased, the Operator shall “End” the flight in the CFMS
+FlyItSafe mobile application.
+In the event of inaccessibility or malfunction of CFMS or FlyItSafe mobile application, the operator shall
+inform / seek positive clearance from the RSAF 203 Squadron Duty Controller (Tel. No.: 6510 5333 / 6510
+5335) on the operating height and area of operation, at least 15 minutes prior and inform again when the
+unmanned aircraft flights have ceased. The Operator shall also provide the flight controller number and
+serial number of the unmanned aircraft system for RSAF's verification purposes. The CAAS/RSAF could
+also make calls to verify if the operator is operating at the approved location, without prior notification.
+4.
+Other than geo-fencing, the Operator shall also set the operating altitude to no higher than approved height
+given by RSAF, including contingency mode like Return-To-Home (RTH)) to avoid fly away of the
+unmanned aircraft.
+5.
+The Operator shall ensure that the designated on-site personnel (Seth, +6596756256 and Teo Jun Kai,
++6597578160) remain contactable at all times whenever the unmanned aircraft is flown.
+6.
+The Operator shall be solely responsible for the safe conduct of the unmanned aircraft flights.The Operator
+shall cease the flying operations within five (5) minutes upon notification by CAAS/RSAF/SPF. The CAAS/
+RSAF/SPF reserves the right to cancel this clearance, should the need arise, without prior notification.
+7.
+This Permit shall not be transferred to any person and any purported transfer of the permit in contravention
+of this condition shall be void and of no effect.
+8.
+Page 2 of 4
+8.
+This Permit may be withdrawn at the discretion of CAAS.9.
+The Operator is reminded that photography or videography of Protected Areas or Protected Places without
+the permission of the authority of that Protected Area or Protected Place is an offence under the
+Infrastructure Act 2017 (IPA). The Operator is expected to seek permission from the relevant authority
+before the commencement of flight if there is a need to capture photography / videography of
+Protected Areas or Protected Places. The list of Protected Areas or Protected Places may be found at
+SPF’s IPA webpage (https://www.police.gov.sg/Advisories/Infrastructure-Protection/Protected-Areas-and-
+Protected-Places). The Operator is also reminded to check if they are operating the unmanned aircraft
+within proximity of Protected Areas under the Air Navigation Act (ANA) and to be mindful of the boundaries
+stated in One Map. The Operator shall alert the CAAS UAS Duty Officer (Tel: 6241 1292) immediately
+upon any intrusion of the unmanned aircraft into the boundaries.
+10.
+This Permit does not permit the operation of any unmanned aircraft within a Temporary Restricted Area
+(TRA) that may be established during the validity period of this Permit. A separate Class 1 Activity Permit
+must be obtained in order to carry out an activity within the TRA.
+11.
+Nicholas Tan
+for and on behalf of
+Deputy Director (Unmanned Systems Policy & Regulations)
+Civil Aviation Authority of Singapore
+(This Permit is issued electronically. No signature is required)
+Page 3 of 4
+ANNEX A
+Page 4 of 4
