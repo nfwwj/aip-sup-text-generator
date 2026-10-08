@@ -107,6 +107,12 @@ st.markdown("""
             
 **ADDED:**
 1. Some optimization relating to fetching of data. Loading times for most pages should be decreased.
+
+**FIXED:**
+1. Amended Regex pattern for coordinates to accept commas instead of crashing.
+2. Removed unique constraint for cranes
+
+
 """)
 
 

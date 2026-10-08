@@ -203,12 +203,12 @@ try:
                 # Generate the individual pin drop
                 folium.Marker(
                     location=[row['lat'], row['long']],
-                    popup=folium.Popup(popup_content, max_width=300),
+                    popup=folium.Popup(popup_content, max_width=900),
                     tooltip=f"App: {row.get('application_num', 'N/A')}",  
                     icon=folium.Icon(color="red")
                 ).add_to(m)
                 
-            st_folium(m, width=800, height=500, key="fpo_master_map", returned_objects=[])
+            st_folium(m, width=1000, height=600, key="fpo_master_map", returned_objects=[])
 
             st.divider()
             st.subheader("🏗️ Crane records")

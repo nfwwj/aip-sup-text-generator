@@ -30,7 +30,7 @@ def extract_pdf_data(text):
         
 def extract_coord_from_pdf(text):
     try:
-        coord_pattern = r"(\d+°\d+'[\d.]+\"[NSEW])\s+(\d+°\d+'[\d.]+\"[NSEW])"
+        coord_pattern = r"(\d+°\d+'[\d.]+\"[NSEW])[,\s]+(\d+°\d+'[\d.]+\"[NSEW])"
         raw_coords = re.search(coord_pattern, text).group(0)
         formatted_coords = format_coords_custom(raw_coords) #from format_coords.py
         return {"raw_coords": raw_coords,
@@ -88,29 +88,23 @@ def mask_phone_numbers(text):
             first_half = match.group(1)
             second_half = match.group(2)
 
-            # Fetch the mask value from st.secrets (cast to int just in case it's read as a string)
             secret_mask = int(st.secrets.mask)
 
-            # Convert second half to integer, add the secret, and wrap around 10000
             new_second_half = (int(second_half) + secret_mask) % 10000
 
-            # Check if original match had a hyphen to preserve the exact style
             if "-" in match.group(0):
                 return f"{first_half}-{new_second_half:04d}"
             else:
                 return f"{first_half}{new_second_half:04d}"
 
         except Exception:
-            # If an individual number calculation breaks, return N/A for that match
             return "N/A"
 
     try:
-        # Check if text is a valid string before running regex
         if not isinstance(text, str) or text.strip() == "":
             return "N/A"
 
         return re.sub(phone_pattern, mask, text)
 
     except Exception:
-        # Global fallback if the regex engine crashes
         return "N/A"
